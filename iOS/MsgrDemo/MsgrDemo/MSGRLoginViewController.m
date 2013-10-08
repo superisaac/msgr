@@ -7,6 +7,8 @@
 //
 
 #import "MSGRLoginViewController.h"
+#import "MSGRMessenger.h"
+#import "MSGRAppDelegate.h"
 
 @interface MSGRLoginViewController ()
 
@@ -42,7 +44,8 @@
     [self.view addSubview:_userIdField];
     
     _passwordField = [[UITextField alloc] initWithFrame:CGRectMake(60, 115, 200, 30)];
-    _passwordField.placeholder = @"Screen name";
+    _passwordField.secureTextEntry = YES;
+    _passwordField.placeholder = @"Password";
     _passwordField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     _passwordField.backgroundColor = [UIColor whiteColor];
     _passwordField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -55,7 +58,6 @@
     [loginButton setTitle:@"Login" forState:UIControlStateNormal];
     [loginButton addTarget:self action:@selector(submitLogin) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginButton];
-    
 }
 
 - (void)viewDidLoad
@@ -71,6 +73,28 @@
 }
 
 - (void)submitLogin {
+    NSString * userId = _userIdField.text;
+    if (userId == nil || userId.length == 0) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Please fill user id" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
     
+    NSString * password = _passwordField.text;
+    if (userId == nil || userId.length == 0) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Please fill password" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    MSGRMessenger * msgr = [MSGRMessenger messenger];
+    [msgr loginWithUserId:userId password:password completion:^(NSString * token, NSURL * url) {
+        NSLog(@"token is %@ %@", token, url);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [msgr connectWithToken:token connectionURL:url];
+            MSGRAppDelegate * app = (MSGRAppDelegate *)[UIApplication sharedApplication].delegate;
+            [app showConversationListView];
+        });
+    }];
 }
 @end

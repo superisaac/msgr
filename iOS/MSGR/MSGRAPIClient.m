@@ -27,7 +27,7 @@
 
 - (NSString * )fullPath:(NSString *)path {
     NSURL * baseURL = [MSGRMessenger messenger].httpURL;
-    return [NSString stringWithFormat:@"http://%@:%@/api/v1%@", baseURL.host, baseURL.port, path];
+    return [NSString stringWithFormat:@"http://%@:%@%@", baseURL.host, baseURL.port, path];
 }
 
 + (NSOperationQueue *)requestQueue {

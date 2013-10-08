@@ -20,14 +20,14 @@
     [self.window makeKeyAndVisible];
     
     MSGRMessenger * messenger = [MSGRMessenger messenger];
-    messenger.httpURL = [NSURL URLWithString:@"http://192.168.2.144:3002"];
+    
+    // Change to the real URL
+    messenger.httpURL = [NSURL URLWithString:@"http://127.0.0.1:3002"];
     [messenger setLoginBlock:^{
         [self showLoginView];
     }];
     [messenger connect];
-    
     [self showConversationListView];
-    
     return YES;
 }
 

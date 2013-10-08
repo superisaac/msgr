@@ -179,7 +179,25 @@ static NSString * kUDLoginUser = @"com.zengke.Msgr.loginUser";
     if (![MSGRUtilities isEmptyText:screenName]) {
         params[@"screen_name"] = screenName;
     }
-    [client get:@"/register" params:params];
+    [client get:@"/api/v1/register" params:params];
+}
+
+- (void)loginWithUserId:(NSString *)userId password:(NSString *)password completion:(void(^)(NSString * token, NSURL * url))completion
+{
+    MSGRAPIClient * client = [[MSGRAPIClient alloc] init];
+    [client setSuccessHandler:^(id responseObject) {
+        NSLog(@"register %@ got %@", userId, completion);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSURL * url = [NSURL URLWithString:responseObject[@"url"]];
+            NSString * aToken = responseObject[@"token"];
+            completion(aToken, url);
+        });
+    }];
+    //NSDictionary * params = @{@"uid":userId};
+    NSMutableDictionary * params = [[NSMutableDictionary alloc] init];
+    params[@"user_id"] = userId;
+    params[@"password"] = password;
+    [client post:@"/auth/login" params:params];
 }
 
 
@@ -210,7 +228,7 @@ static NSString * kUDLoginUser = @"com.zengke.Msgr.loginUser";
     }];
     assert(![MSGRUtilities isEmptyText:text]);
     NSDictionary * params= @{@"uid": user.identifier, @"text":text};
-    [client post:@"/messages/" params:params];
+    [client post:@"/api/v1/messages/" params:params];
 }
 
 - (void)sendImage:(UIImage *)image toUser:(MSGRUserObject *)user completion:(void(^)(MSGRMsgObject * msg))completion {
@@ -243,7 +261,7 @@ static NSString * kUDLoginUser = @"com.zengke.Msgr.loginUser";
     }];
     NSDictionary * params= @{@"uid": user.identifier};
     NSDictionary * files = @{@"image": imageData};
-    [client upload:@"/messages/" params:params files:files];
+    [client upload:@"/api/v1/messages/" params:params files:files];
 }
 
 - (void)sendAudio:(NSData *)audioData duration:(NSTimeInterval)duration toUser:(MSGRUserObject * )user completion:(void(^)(MSGRMsgObject * msg))completion {
@@ -276,7 +294,7 @@ static NSString * kUDLoginUser = @"com.zengke.Msgr.loginUser";
     }];
     NSDictionary * params= @{@"uid": user.identifier, @"duration": @(duration)};
     NSDictionary * files = @{@"audio": audioData};
-    [client upload:@"/messages/" params:params files:files];
+    [client upload:@"/api/v1/messages/" params:params files:files];
 }
 
 - (void)searchUsersByName:(NSString *)name completion:(void(^)(NSArray * users))completion {
@@ -293,7 +311,7 @@ static NSString * kUDLoginUser = @"com.zengke.Msgr.loginUser";
     }];
     assert(![MSGRUtilities isEmptyText:name]);
     NSDictionary * params= @{@"name": name};
-    [client get:@"/usersearch/" params:params];
+    [client get:@"/api/v1/usersearch/" params:params];
 }
 
 - (UIViewController *)conversationListViewController {
