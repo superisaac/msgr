@@ -4,5 +4,5 @@
     "uploadDir": "upload",
     "mongoDB": {
 	"host": "localhost",
-        "database": "talklet"}
+        "database": "msgr"}
 }

@@ -169,10 +169,31 @@ exports.forEachArgument = function(args, callback) {
 
 exports.connectMongodb = function (callback) {
     var dbConfig = exports.config.mongoDB;
-    console.info('db config', dbConfig);
     mongoose.connect(dbConfig.host, dbConfig.database, function () {
 	    if (typeof callback == 'function') {
 		callback();
 	    }
 	});
+};
+
+exports.random = {
+    choice: function(candidates) {
+	var index = Math.floor(Math.random() * candidates.length);
+	if (typeof candidates == 'string') {
+	    return candidates.substr(index, 1);
+	} else {
+	    return candidates[index];
+	}	
+    },
+    sample: function (candidates, nlength) {
+	var arr = [];
+	for(var i=0; i<nlength; i++) {
+	    var c = exports.random.choice(candidates);
+	    arr.push(c);	    
+	}
+	if (typeof candidates == 'string') {
+	    arr = arr.join('');
+	}
+	return arr;
+    }    
 };

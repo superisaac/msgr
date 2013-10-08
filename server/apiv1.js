@@ -30,26 +30,11 @@ exports.serve = function (app) {
 	    res.status(400).send({'message': 'Illegal screen name!'});
 	    return;
 	}*/
-
-	var defer = controller.findOrCreateUser(userId, screenName);
-	defer.then(function(user, created) {
-	    var d1 = controller.findOrCreateSession(user);
-	    d1.then(function (session) {
-		    var resObj = {token: session.token};
-		    resObj.url = 'http://' + req.headers.host;
-		    res.send(resObj);
-		    //res.send(session.toJSON(user));
+	var defer = controller.registerUser(userId, screenName);
+	defer.then(function (respObj) {
+		resObj.url = 'http://' + req.headers.host;
+		res.send(resObj);
 	    });
-	    if (created) {
-		var d2 = controller.findOrCreateUser('assist', 'Assistant');
-		d2.then(function(assist, created) {
-			controller.postMessage(
-			      assist,
-			      user,
-			      'text', 'Hello!');
-		});
-	    }
-	});
     });
 
     function fetchUser(req) {

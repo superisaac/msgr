@@ -1,4 +1,6 @@
+var crypto = require('crypto');
 var mongoose = require('mongoose');
+
 var helper = require('./helper');
 var Mixed = mongoose.Schema.Types.Mixed;
 var ObjectId = mongoose.Schema.Types.ObjectId;
@@ -101,7 +103,34 @@ chatMessageSchema.methods.toJSONWithUser = function() {
 	});
     return d;    
 };
-
 exports.ChatMessage = mongoose.model('ChatMessage', chatMessageSchema);
 exports.ChatMessage.stateSent = 0;
 exports.ChatMessage.stateSynced = 1;
+
+// Contrib models
+var authUserSchema = mongoose.Schema({
+        'userId': {type: String, index:1},
+	'salt': {type: String},
+	'password': {type: String}
+    });
+
+authUserSchema.methods.setPassword = function(password) {
+    var shaHash = crypto.createHash('sha');
+    var salt = helper.random.sample('abcdefghijklmnopqrstuvwxyz', 6);
+    shaHash.update(salt + ':' + password);
+    this.salt = salt;
+    this.password = shaHash.digest('hex'); 
+};
+
+authUserSchema.methods.checkPassword = function(password) {
+    var shaHash = crypto.createHash('sha');
+    shaHash.update(this.salt + ':' + password);
+    return shaHash.digest('hex') == this.password;
+}
+
+exports.AuthUser = mongoose.model('AuthUser', authUserSchema);
+
+
+
+
+

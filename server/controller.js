@@ -64,6 +64,30 @@ exports.findUsersByName = function (screenName) {
     return defer;
 };
 
+exports.registerUser = function (userId, screenName) {
+    var fd = helper.Defer();
+    var defer = exports.findOrCreateUser(userId, userId);
+    defer.then(function(user, created) {
+	    var d1 = exports.findOrCreateSession(user);
+	    d1.then(function (session) {
+		    console.info(session);
+		    var resObj = {token: session.token};
+		    //resObj.url = 'http://' + req.headers.host;
+		    fd.avail(resObj);
+		});
+	    if (created) {
+		var d2 = exports.findOrCreateUser('assist', 'Assistant');
+		d2.then(function(assist, created) {
+			exports.postMessage(
+					    assist,
+					    user,
+					    'text', 'Hello!');
+		    });
+	    }
+	});
+    return fd;
+};
+
 exports.findOrCreateUser = function (userId, screenName) {
     var defer = helper.Defer();
     var d = exports.getUser(userId);
