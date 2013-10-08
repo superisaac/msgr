@@ -5,7 +5,6 @@
 //  Created by Ke Zeng on 13-7-30.
 //  Copyright (c) 2013年 ZengKe. All rights reserved.
 //
-
 #import "MSGRAudioComposer.h"
 
 @interface MSGRAudioComposer ()
