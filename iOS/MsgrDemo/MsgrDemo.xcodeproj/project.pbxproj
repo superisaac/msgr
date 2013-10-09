@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06BA94771804DDEA004B7A33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06BA94761804DDEA004B7A33 /* AVFoundation.framework */; };
 		30B188B7180404EF0088D6F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B188B6180404EF0088D6F5 /* Foundation.framework */; };
 		30B188B9180404EF0088D6F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B188B8180404EF0088D6F5 /* CoreGraphics.framework */; };
 		30B188BB180404EF0088D6F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B188BA180404EF0088D6F5 /* UIKit.framework */; };
@@ -14,11 +15,8 @@
 		30B188C3180404EF0088D6F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B188C2180404EF0088D6F5 /* main.m */; };
 		30B188C7180404EF0088D6F5 /* MSGRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B188C6180404EF0088D6F5 /* MSGRAppDelegate.m */; };
 		30B188C9180404EF0088D6F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B188C8180404EF0088D6F5 /* Images.xcassets */; };
-		30B188D0180404EF0088D6F5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B188CF180404EF0088D6F5 /* XCTest.framework */; };
 		30B188D1180404EF0088D6F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B188B6180404EF0088D6F5 /* Foundation.framework */; };
 		30B188D2180404EF0088D6F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B188BA180404EF0088D6F5 /* UIKit.framework */; };
-		30B188DA180404EF0088D6F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30B188D8180404EF0088D6F5 /* InfoPlist.strings */; };
-		30B188DC180404EF0088D6F5 /* MsgrDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B188DB180404EF0088D6F5 /* MsgrDemoTests.m */; };
 		30B1891F180410980088D6F5 /* MSGRDefaultContact.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B188E7180410980088D6F5 /* MSGRDefaultContact.png */; };
 		30B18920180410980088D6F5 /* MSGRLeftBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B188E8180410980088D6F5 /* MSGRLeftBubble.png */; };
 		30B18921180410980088D6F5 /* MSGRLeftBubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30B188E9180410980088D6F5 /* MSGRLeftBubble@2x.png */; };
@@ -67,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06BA94761804DDEA004B7A33 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		30B188B3180404EF0088D6F5 /* MsgrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MsgrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B188B6180404EF0088D6F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		30B188B8180404EF0088D6F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -77,12 +76,8 @@
 		30B188C4180404EF0088D6F5 /* MsgrDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MsgrDemo-Prefix.pch"; sourceTree = "<group>"; };
 		30B188C5180404EF0088D6F5 /* MSGRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGRAppDelegate.h; sourceTree = "<group>"; };
 		30B188C6180404EF0088D6F5 /* MSGRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSGRAppDelegate.m; sourceTree = "<group>"; };
-		30B188C8180404EF0088D6F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		30B188CE180404EF0088D6F5 /* MsgrDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MsgrDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		30B188CF180404EF0088D6F5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		30B188D7180404EF0088D6F5 /* MsgrDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MsgrDemoTests-Info.plist"; sourceTree = "<group>"; };
-		30B188D9180404EF0088D6F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		30B188DB180404EF0088D6F5 /* MsgrDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MsgrDemoTests.m; sourceTree = "<group>"; };
+		30B188C8180404EF0088D6F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images.xcassets; sourceTree = "<group>"; };
+		30B188CE180404EF0088D6F5 /* MsgrDemoTests */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = MsgrDemoTests; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B188E7180410980088D6F5 /* MSGRDefaultContact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MSGRDefaultContact.png; sourceTree = "<group>"; };
 		30B188E8180410980088D6F5 /* MSGRLeftBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MSGRLeftBubble.png; sourceTree = "<group>"; };
 		30B188E9180410980088D6F5 /* MSGRLeftBubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MSGRLeftBubble@2x.png"; sourceTree = "<group>"; };
@@ -150,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06BA94771804DDEA004B7A33 /* AVFoundation.framework in Frameworks */,
 				30B18942180410CA0088D6F5 /* CFNetwork.framework in Frameworks */,
 				30B18940180410B30088D6F5 /* libsqlite3.dylib in Frameworks */,
 				30B188B9180404EF0088D6F5 /* CoreGraphics.framework in Frameworks */,
@@ -162,7 +158,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30B188D0180404EF0088D6F5 /* XCTest.framework in Frameworks */,
 				30B188D2180404EF0088D6F5 /* UIKit.framework in Frameworks */,
 				30B188D1180404EF0088D6F5 /* Foundation.framework in Frameworks */,
 			);
@@ -175,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				30B188BC180404EF0088D6F5 /* MsgrDemo */,
-				30B188D5180404EF0088D6F5 /* MsgrDemoTests */,
 				30B188B5180404EF0088D6F5 /* Frameworks */,
 				30B188B4180404EF0088D6F5 /* Products */,
 			);
@@ -185,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				30B188B3180404EF0088D6F5 /* MsgrDemo.app */,
-				30B188CE180404EF0088D6F5 /* MsgrDemoTests.xctest */,
+				30B188CE180404EF0088D6F5 /* MsgrDemoTests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,12 +187,12 @@
 		30B188B5180404EF0088D6F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06BA94761804DDEA004B7A33 /* AVFoundation.framework */,
 				30B18941180410CA0088D6F5 /* CFNetwork.framework */,
 				30B1893F180410B30088D6F5 /* libsqlite3.dylib */,
 				30B188B6180404EF0088D6F5 /* Foundation.framework */,
 				30B188B8180404EF0088D6F5 /* CoreGraphics.framework */,
 				30B188BA180404EF0088D6F5 /* UIKit.framework */,
-				30B188CF180404EF0088D6F5 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,24 +218,6 @@
 				30B188BF180404EF0088D6F5 /* InfoPlist.strings */,
 				30B188C2180404EF0088D6F5 /* main.m */,
 				30B188C4180404EF0088D6F5 /* MsgrDemo-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		30B188D5180404EF0088D6F5 /* MsgrDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				30B188DB180404EF0088D6F5 /* MsgrDemoTests.m */,
-				30B188D6180404EF0088D6F5 /* Supporting Files */,
-			);
-			path = MsgrDemoTests;
-			sourceTree = "<group>";
-		};
-		30B188D6180404EF0088D6F5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				30B188D7180404EF0088D6F5 /* MsgrDemoTests-Info.plist */,
-				30B188D8180404EF0088D6F5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -353,7 +329,7 @@
 			);
 			name = MsgrDemoTests;
 			productName = MsgrDemoTests;
-			productReference = 30B188CE180404EF0088D6F5 /* MsgrDemoTests.xctest */;
+			productReference = 30B188CE180404EF0088D6F5 /* MsgrDemoTests */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -412,7 +388,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30B188DA180404EF0088D6F5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +431,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30B188DC180404EF0088D6F5 /* MsgrDemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,14 +449,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				30B188C0180404EF0088D6F5 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		30B188D8180404EF0088D6F5 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				30B188D9180404EF0088D6F5 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -655,6 +621,7 @@
 				30B188E1180404EF0088D6F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		30B188E2180404EF0088D6F5 /* Build configuration list for PBXNativeTarget "MsgrDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -663,6 +630,7 @@
 				30B188E4180404EF0088D6F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -64,7 +64,7 @@
 - (void)startRecording {
     [self setupRecorder];
     [self.recorder recordForDuration:60.0f];
-    recordStartTime = [NSDate date].timeIntervalSince1970;
+    recordStartTime = [[NSDate date] timeIntervalSince1970];
 }
 
 - (void)stopRecording {
@@ -77,7 +77,7 @@
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
     NSLog(@"recorder finished! %g", recorder.currentTime);
     if (self.delegate) {
-        NSTimeInterval duration = [NSDate date].timeIntervalSince1970 - recordStartTime;
+        NSTimeInterval duration = [[NSDate date] timeIntervalSince1970] - recordStartTime;
         recordStartTime = -1;
         [self.delegate audioComposer:self savedFileName:self.savedAudioFileName duration:duration];
     }
