@@ -51,6 +51,12 @@
     
     UIBarButtonItem * dismissButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(dismiss)];
     self.navigationItem.leftBarButtonItem = dismissButton;
+    
+    UISegmentedControl * colorControl = [[UISegmentedControl alloc] initWithItems:@[@"Blue", @"Red", @"Black"]];
+    [colorControl setSelectedSegmentIndex:0];
+    [colorControl addTarget:self action:@selector(colorChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    self.navigationItem.titleView = colorControl;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -144,5 +150,18 @@
     }
 }
 
+- (void)colorChanged:(UISegmentedControl *)segment {
+    switch (segment.selectedSegmentIndex) {
+        case 1:
+            _imageView.strokeColor = [UIColor redColor];
+            break;
+        case 2:
+            _imageView.strokeColor = [UIColor blackColor];
+            break;
+        default:
+            _imageView.strokeColor = [UIColor blueColor];
+            break;
+    }
+}
 
 @end

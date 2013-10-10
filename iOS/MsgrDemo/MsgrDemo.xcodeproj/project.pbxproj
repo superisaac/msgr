@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		06BA94771804DDEA004B7A33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06BA94761804DDEA004B7A33 /* AVFoundation.framework */; };
+		30A7B3A618093E5B0096A40C /* MSGRDEMOLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A7B3A518093E5B0096A40C /* MSGRDEMOLoginViewController.m */; };
+		30A7B3A918093EA00096A40C /* MSGRDEMOLoginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A7B3A818093EA00096A40C /* MSGRDEMOLoginCell.m */; };
 		30B188B7180404EF0088D6F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B188B6180404EF0088D6F5 /* Foundation.framework */; };
 		30B188B9180404EF0088D6F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B188B8180404EF0088D6F5 /* CoreGraphics.framework */; };
 		30B188BB180404EF0088D6F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B188BA180404EF0088D6F5 /* UIKit.framework */; };
@@ -51,7 +53,6 @@
 		30B1893E180410980088D6F5 /* MSGRUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B1891E180410980088D6F5 /* MSGRUtilities.m */; };
 		30B18940180410B30088D6F5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B1893F180410B30088D6F5 /* libsqlite3.dylib */; };
 		30B18942180410CA0088D6F5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B18941180410CA0088D6F5 /* CFNetwork.framework */; };
-		30B18945180411E10088D6F5 /* MSGRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B18944180411E10088D6F5 /* MSGRLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,10 @@
 
 /* Begin PBXFileReference section */
 		06BA94761804DDEA004B7A33 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		30A7B3A418093E5B0096A40C /* MSGRDEMOLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGRDEMOLoginViewController.h; sourceTree = "<group>"; };
+		30A7B3A518093E5B0096A40C /* MSGRDEMOLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGRDEMOLoginViewController.m; sourceTree = "<group>"; };
+		30A7B3A718093EA00096A40C /* MSGRDEMOLoginCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGRDEMOLoginCell.h; sourceTree = "<group>"; };
+		30A7B3A818093EA00096A40C /* MSGRDEMOLoginCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGRDEMOLoginCell.m; sourceTree = "<group>"; };
 		30B188B3180404EF0088D6F5 /* MsgrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MsgrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B188B6180404EF0088D6F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		30B188B8180404EF0088D6F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,8 +141,6 @@
 		30B1891E180410980088D6F5 /* MSGRUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGRUtilities.m; sourceTree = "<group>"; };
 		30B1893F180410B30088D6F5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		30B18941180410CA0088D6F5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		30B18943180411E10088D6F5 /* MSGRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGRLoginViewController.h; sourceTree = "<group>"; };
-		30B18944180411E10088D6F5 /* MSGRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGRLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,8 +206,10 @@
 				30B188E5180410980088D6F5 /* MSGR */,
 				30B188C5180404EF0088D6F5 /* MSGRAppDelegate.h */,
 				30B188C6180404EF0088D6F5 /* MSGRAppDelegate.m */,
-				30B18943180411E10088D6F5 /* MSGRLoginViewController.h */,
-				30B18944180411E10088D6F5 /* MSGRLoginViewController.m */,
+				30A7B3A418093E5B0096A40C /* MSGRDEMOLoginViewController.h */,
+				30A7B3A518093E5B0096A40C /* MSGRDEMOLoginViewController.m */,
+				30A7B3A718093EA00096A40C /* MSGRDEMOLoginCell.h */,
+				30A7B3A818093EA00096A40C /* MSGRDEMOLoginCell.m */,
 				30B188C8180404EF0088D6F5 /* Images.xcassets */,
 				30B188BD180404EF0088D6F5 /* Supporting Files */,
 			);
@@ -404,8 +409,8 @@
 				30B18934180410980088D6F5 /* MSGRNavigationController.m in Sources */,
 				30B1892D180410980088D6F5 /* MSGRConvListCell.m in Sources */,
 				30B18938180410980088D6F5 /* MSGRSearchBar.m in Sources */,
+				30A7B3A618093E5B0096A40C /* MSGRDEMOLoginViewController.m in Sources */,
 				30B1892F180410980088D6F5 /* MSGRConvObject.m in Sources */,
-				30B18945180411E10088D6F5 /* MSGRLoginViewController.m in Sources */,
 				30B1892C180410980088D6F5 /* MSGRCategories.m in Sources */,
 				30B18928180410980088D6F5 /* MSGRAPIClient.m in Sources */,
 				30B1892A180410980088D6F5 /* MSGRBaseObject.m in Sources */,
@@ -422,6 +427,7 @@
 				30B1893E180410980088D6F5 /* MSGRUtilities.m in Sources */,
 				30B188C7180404EF0088D6F5 /* MSGRAppDelegate.m in Sources */,
 				30B1892E180410980088D6F5 /* MSGRConvListViewController.m in Sources */,
+				30A7B3A918093EA00096A40C /* MSGRDEMOLoginCell.m in Sources */,
 				30B1892B180410980088D6F5 /* MSGRCanvasImageView.m in Sources */,
 				30B18937180410980088D6F5 /* MSGRPopOverMenu.m in Sources */,
 			);

@@ -8,7 +8,7 @@
 
 #import "MSGRAppDelegate.h"
 #import "MSGRMessenger.h"
-#import "MSGRLoginViewController.h"
+#import "MSGRDEMOLoginViewController.h"
 
 @implementation MSGRAppDelegate
 
@@ -22,7 +22,6 @@
     MSGRMessenger * messenger = [MSGRMessenger messenger];
     
     // Change to the real URL
-    messenger.httpURL = [NSURL URLWithString:@"http://127.0.0.1:3002"];
     [messenger setLoginBlock:^{
         [self showLoginView];
     }];
@@ -60,8 +59,9 @@
 
 // MSGR demo related
 - (void)showLoginView {
-    //self.viewController = [[ZKSinaAuthViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    self.viewController = [[MSGRLoginViewController alloc] initWithNibName:nil bundle:nil];
+    MSGRDEMOLoginViewController * loginViewController = [[MSGRDEMOLoginViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    self.viewController = nav;
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
 }

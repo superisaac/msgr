@@ -40,7 +40,7 @@ extern NSString * kMSGRRequireLogin;
 - (void)connect;
 - (void)connectWithToken:(NSString *)newToken connectionURL:(NSURL *)newURL;
 - (void)registerWithUserId:(NSString *)userId screenName:(NSString *)screenName completion:(void (^)(NSString * token, NSURL * url))completion;
-- (void)loginWithUserId:(NSString *)userId password:(NSString *)password completion:(void(^)(NSString * token, NSURL * url))completion;
+- (void)loginWithUserId:(NSString *)userId password:(NSString *)password completion:(void(^)(NSError * error, NSString * token, NSURL * url))completion;
 
 - (void)sendText:(NSString *)text toUser:(MSGRUserObject *)user completion:(void(^)(MSGRMsgObject * msg))completion;
 - (void)sendImage:(UIImage *)image toUser:(MSGRUserObject *)user completion:(void(^)(MSGRMsgObject * msg))completion;

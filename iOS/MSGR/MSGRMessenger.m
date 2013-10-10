@@ -182,7 +182,7 @@ static NSString * kUDLoginUser = @"com.zengke.Msgr.loginUser";
     [client get:@"/api/v1/register" params:params];
 }
 
-- (void)loginWithUserId:(NSString *)userId password:(NSString *)password completion:(void(^)(NSString * token, NSURL * url))completion
+- (void)loginWithUserId:(NSString *)userId password:(NSString *)password completion:(void(^)(NSError * error, NSString * token, NSURL * url))completion
 {
     MSGRAPIClient * client = [[MSGRAPIClient alloc] init];
     [client setSuccessHandler:^(id responseObject) {
@@ -190,8 +190,11 @@ static NSString * kUDLoginUser = @"com.zengke.Msgr.loginUser";
         dispatch_async(dispatch_get_main_queue(), ^{
             NSURL * url = [NSURL URLWithString:responseObject[@"url"]];
             NSString * aToken = responseObject[@"token"];
-            completion(aToken, url);
+            completion(nil, aToken, url);
         });
+    }];
+    [client setErrorHandler:^(NSError * err) {
+        completion(err, nil, nil);
     }];
     //NSDictionary * params = @{@"uid":userId};
     NSMutableDictionary * params = [[NSMutableDictionary alloc] init];

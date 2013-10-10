@@ -176,7 +176,7 @@
         if (error != nil) {
             NSLog(@"Error on requesting %@ %@", path, [error description]);
             if (self.errorHandler) {
-                self.errorHandler(errorHandler);
+                self.errorHandler(error);
             }
         } else {
             NSError * jsonError;
