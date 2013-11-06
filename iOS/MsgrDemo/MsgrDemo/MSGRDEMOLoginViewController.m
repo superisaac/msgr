@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"Login", nil);
-    
+
     UIBarButtonItem * submitButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Submit", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(submitLogin)];
     self.navigationItem.rightBarButtonItem = submitButton;
     self.navigationItem.rightBarButtonItem.enabled = NO;
@@ -119,7 +119,7 @@
         case 2:
             cell.textLabel.text = NSLocalizedString(@"Password", nil);
             cell.textField.placeholder = NSLocalizedString(@"Password", nil);
-            cell.textField.secureTextEntry = YES;
+            //cell.textField.secureTextEntry = YES;
             cell.textField.text = _password;
             break;
         default:

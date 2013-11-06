@@ -303,8 +303,9 @@ static const NSInteger kTagPacketTail = 1003;
 - (void)connectionEstablished {
     NSLog(@"conn established!");
     [self waitForTerminator:[self CRLFCRLFData] withTag:kTagPacketResponseHead];
-    
-    [self sendString:[NSString stringWithFormat:@"CONNECT /api/v1/tick HTTP/1.1\r\nHost:localhost:3002\r\n\r\n"]];
+    NSURL * baseURL = [MSGRMessenger messenger].baseURL;
+    NSString * headerString = [NSString stringWithFormat:@"CONNECT /api/v1/tick HTTP/1.1\r\nHost:%@:%d\r\n\r\n", baseURL.host, [baseURL.port integerValue]];
+    [self sendString:headerString];
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.delegate) {
             [self.delegate connectionEstablished:self];

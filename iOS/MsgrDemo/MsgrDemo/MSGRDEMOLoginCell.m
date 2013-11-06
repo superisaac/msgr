@@ -7,6 +7,7 @@
 //
 
 #import "MSGRDEMOLoginCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation MSGRDEMOLoginCell
 @synthesize textField;
@@ -37,6 +38,7 @@
     self.delegate = nil;
     self.tag = 0;
     self.textField.keyboardType = UIKeyboardTypeDefault;
+    self.textField.textColor = [UIColor blackColor];
     self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.textField.text = @"";
     self.textField.secureTextEntry = NO;
@@ -44,15 +46,18 @@
 }
 
 - (void)initView {
-    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(105, 6, 200, 32)];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(self.bounds.size.width - 250, 6, 200, 32)];
+    self.textField.textColor = [UIColor blackColor];
     self.textField.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     self.textField.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.textField.layer.borderWidth = 1.0;
     self.textField.delegate = self;
 
     self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    self.textField.backgroundColor = [UIColor whiteColor];
-    [self.contentView addSubview:self.textField];
+    self.textField.backgroundColor = [UIColor clearColor];
+    [self addSubview:self.textField];
     
     [self.textField addTarget:self action:@selector(textDidChanged:) forControlEvents:UIControlEventEditingChanged];
 }
