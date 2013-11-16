@@ -267,7 +267,7 @@ static const NSInteger kTagPacketTail = 1003;
     
     NSMutableData * pac = [[NSMutableData alloc] init];
     char packLength[16];
-    sprintf(packLength, "%d\r\n", packetData.length);
+    sprintf(packLength, "%x\r\n", packetData.length);
     
     [pac appendBytes:packLength length:strlen(packLength)];
     [pac appendData:packetData];
@@ -304,7 +304,7 @@ static const NSInteger kTagPacketTail = 1003;
     NSLog(@"conn established!");
     [self waitForTerminator:[self CRLFCRLFData] withTag:kTagPacketResponseHead];
     NSURL * baseURL = [MSGRMessenger messenger].baseURL;
-    NSString * headerString = [NSString stringWithFormat:@"CONNECT /api/v1/tick HTTP/1.1\r\nHost:%@:%d\r\n\r\n", baseURL.host, [baseURL.port integerValue]];
+    NSString * headerString = [NSString stringWithFormat:@"CONNECT /api/v1/tick HTTP/1.1\r\nHost: %@:%d\r\nTransfer-Encoding: chunked\r\n\r\n", baseURL.host, [baseURL.port integerValue]];
     [self sendString:headerString];
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.delegate) {
@@ -318,7 +318,10 @@ static const NSInteger kTagPacketTail = 1003;
         [self waitForTerminator:[self CRLFData] withTag:kTagPacketLength];
     } else if (tag == kTagPacketLength) {
         NSString * s = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSInteger packetLength = [s integerValue];
+        NSUInteger packetLength = 0;
+        NSScanner * scanner = [[NSScanner alloc] initWithString:s];
+        [scanner setScanLocation:0];
+        [scanner scanHexInt:&packetLength];
         [self waitForLength:packetLength withTag:kTagPacketBody];
     } else  if(tag == kTagPacketBody){
         [self waitForLength:2 withTag:kTagPacketTail];

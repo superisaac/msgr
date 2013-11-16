@@ -112,7 +112,7 @@ function Protocol(socket) {
 function packetProtocol(protocol) {
     // parse chunk
     function packetLength(line) {
-	var packLen = parseInt(line);
+	var packLen = parseInt(line, 16);
 	if (isNaN(packLen)) {
 	    console.error('illegal packLen', line);
 	    protocol.close();
@@ -127,8 +127,9 @@ function packetProtocol(protocol) {
     };
     
     protocol.emit = function (directive, packet) {
-	var jsonData = JSON.stringify([directive, packet])
-	var data = Buffer.byteLength(jsonData, 'utf-8') + '\r\n' +  jsonData + '\r\n';
+	var jsonData = JSON.stringify([directive, packet]);
+	var dataLength = new Number(Buffer.byteLength(jsonData, 'utf-8'));
+	var data = dataLength.toString(16) + '\r\n' +  jsonData + '\r\n';
 	protocol.write(data);
     };
     protocol.readCRLF(packetLength);
@@ -139,7 +140,7 @@ exports.installConnectHandler = function (httpServer, handler) {
     function connectionHandler(request, socket, head) {
 	var protocol = Protocol(socket);
 	protocol = packetProtocol(protocol);
-	protocol.write('HTTP/1.1 200 OK\r\n\r\n');
+	protocol.write('HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n');
 	
 	handler(request, protocol);
 	if (head && head.length > 0) {

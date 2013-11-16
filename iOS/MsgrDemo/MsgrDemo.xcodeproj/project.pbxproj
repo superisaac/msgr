@@ -169,6 +169,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		064B14A81837399200E39234 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				30B18915180410980088D6F5 /* MSGRTalkConnectionThread.h */,
+				30B18916180410980088D6F5 /* MSGRTalkConnectionThread.m */,
+				30B18919180410980088D6F5 /* MSGRTickConnection.h */,
+				30B1891A180410980088D6F5 /* MSGRTickConnection.m */,
+				30B188F0180410980088D6F5 /* MSGRAPIClient.h */,
+				30B188F1180410980088D6F5 /* MSGRAPIClient.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		064B14AA183739C600E39234 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30B18909180410980088D6F5 /* MSGRNavigationController.h */,
+				30B1890A180410980088D6F5 /* MSGRNavigationController.m */,
+				30B18917180410980088D6F5 /* MSGRTalkWithUserViewController.h */,
+				30B18918180410980088D6F5 /* MSGRTalkWithUserViewController.m */,
+				30B18911180410980088D6F5 /* MSGRSearchBar.h */,
+				30B18912180410980088D6F5 /* MSGRSearchBar.m */,
+				30B18913180410980088D6F5 /* MSGRStroke.h */,
+				30B18914180410980088D6F5 /* MSGRStroke.m */,
+				30B188FC180410980088D6F5 /* MSGRConvListViewController.h */,
+				30B188FD180410980088D6F5 /* MSGRConvListViewController.m */,
+				30B188FA180410980088D6F5 /* MSGRConvListCell.h */,
+				30B188FB180410980088D6F5 /* MSGRConvListCell.m */,
+				30B18900180410980088D6F5 /* MSGRImageComposeViewController.h */,
+				30B18901180410980088D6F5 /* MSGRImageComposeViewController.m */,
+				30B18905180410980088D6F5 /* MSGRMsgBubbleCell.h */,
+				30B18906180410980088D6F5 /* MSGRMsgBubbleCell.m */,
+				30B188F6180410980088D6F5 /* MSGRCanvasImageView.h */,
+				30B188F7180410980088D6F5 /* MSGRCanvasImageView.m */,
+				30B188F2180410980088D6F5 /* MSGRAudioComposer.h */,
+				30B188F3180410980088D6F5 /* MSGRAudioComposer.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		064B14AB183739F400E39234 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				30B188FE180410980088D6F5 /* MSGRConvObject.h */,
+				30B188FF180410980088D6F5 /* MSGRConvObject.m */,
+				30B188F4180410980088D6F5 /* MSGRBaseObject.h */,
+				30B188F5180410980088D6F5 /* MSGRBaseObject.m */,
+				30B18907180410980088D6F5 /* MSGRMsgObject.h */,
+				30B18908180410980088D6F5 /* MSGRMsgObject.m */,
+				30B1891B180410980088D6F5 /* MSGRUserObject.h */,
+				30B1891C180410980088D6F5 /* MSGRUserObject.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		064B14AC18373A5D00E39234 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				30B1890D180410980088D6F5 /* MSGRObjectStore.h */,
+				30B1890E180410980088D6F5 /* MSGRObjectStore.m */,
+				30B1890B180410980088D6F5 /* MSGRObjectSQLiteStore.h */,
+				30B1890C180410980088D6F5 /* MSGRObjectSQLiteStore.m */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
+		064B14AD18373A9A00E39234 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				30B1891D180410980088D6F5 /* MSGRUtilities.h */,
+				30B1891E180410980088D6F5 /* MSGRUtilities.m */,
+				30B188F8180410980088D6F5 /* MSGRCategories.h */,
+				30B188F9180410980088D6F5 /* MSGRCategories.m */,
+				30B1890F180410980088D6F5 /* MSGRPopOverMenu.h */,
+				30B18910180410980088D6F5 /* MSGRPopOverMenu.m */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		064B14AE18373B2100E39234 /* Messenger */ = {
+			isa = PBXGroup;
+			children = (
+				30B18902180410980088D6F5 /* MSGRMessenger.h */,
+				30B18903180410980088D6F5 /* MSGRMessenger.m */,
+				30B18904180410980088D6F5 /* MSGRMessengerDelegate.h */,
+			);
+			name = Messenger;
+			sourceTree = "<group>";
+		};
 		30B188AA180404EF0088D6F5 = {
 			isa = PBXGroup;
 			children = (
@@ -230,54 +319,13 @@
 		30B188E5180410980088D6F5 /* MSGR */ = {
 			isa = PBXGroup;
 			children = (
+				064B14AE18373B2100E39234 /* Messenger */,
+				064B14AD18373A9A00E39234 /* Misc */,
+				064B14AC18373A5D00E39234 /* Store */,
+				064B14AB183739F400E39234 /* Objects */,
+				064B14AA183739C600E39234 /* Views */,
+				064B14A81837399200E39234 /* Networking */,
 				30B188E6180410980088D6F5 /* Assets */,
-				30B188F0180410980088D6F5 /* MSGRAPIClient.h */,
-				30B188F1180410980088D6F5 /* MSGRAPIClient.m */,
-				30B188F2180410980088D6F5 /* MSGRAudioComposer.h */,
-				30B188F3180410980088D6F5 /* MSGRAudioComposer.m */,
-				30B188F4180410980088D6F5 /* MSGRBaseObject.h */,
-				30B188F5180410980088D6F5 /* MSGRBaseObject.m */,
-				30B188F6180410980088D6F5 /* MSGRCanvasImageView.h */,
-				30B188F7180410980088D6F5 /* MSGRCanvasImageView.m */,
-				30B188F8180410980088D6F5 /* MSGRCategories.h */,
-				30B188F9180410980088D6F5 /* MSGRCategories.m */,
-				30B188FA180410980088D6F5 /* MSGRConvListCell.h */,
-				30B188FB180410980088D6F5 /* MSGRConvListCell.m */,
-				30B188FC180410980088D6F5 /* MSGRConvListViewController.h */,
-				30B188FD180410980088D6F5 /* MSGRConvListViewController.m */,
-				30B188FE180410980088D6F5 /* MSGRConvObject.h */,
-				30B188FF180410980088D6F5 /* MSGRConvObject.m */,
-				30B18900180410980088D6F5 /* MSGRImageComposeViewController.h */,
-				30B18901180410980088D6F5 /* MSGRImageComposeViewController.m */,
-				30B18902180410980088D6F5 /* MSGRMessenger.h */,
-				30B18903180410980088D6F5 /* MSGRMessenger.m */,
-				30B18904180410980088D6F5 /* MSGRMessengerDelegate.h */,
-				30B18905180410980088D6F5 /* MSGRMsgBubbleCell.h */,
-				30B18906180410980088D6F5 /* MSGRMsgBubbleCell.m */,
-				30B18907180410980088D6F5 /* MSGRMsgObject.h */,
-				30B18908180410980088D6F5 /* MSGRMsgObject.m */,
-				30B18909180410980088D6F5 /* MSGRNavigationController.h */,
-				30B1890A180410980088D6F5 /* MSGRNavigationController.m */,
-				30B1890B180410980088D6F5 /* MSGRObjectSQLiteStore.h */,
-				30B1890C180410980088D6F5 /* MSGRObjectSQLiteStore.m */,
-				30B1890D180410980088D6F5 /* MSGRObjectStore.h */,
-				30B1890E180410980088D6F5 /* MSGRObjectStore.m */,
-				30B1890F180410980088D6F5 /* MSGRPopOverMenu.h */,
-				30B18910180410980088D6F5 /* MSGRPopOverMenu.m */,
-				30B18911180410980088D6F5 /* MSGRSearchBar.h */,
-				30B18912180410980088D6F5 /* MSGRSearchBar.m */,
-				30B18913180410980088D6F5 /* MSGRStroke.h */,
-				30B18914180410980088D6F5 /* MSGRStroke.m */,
-				30B18915180410980088D6F5 /* MSGRTalkConnectionThread.h */,
-				30B18916180410980088D6F5 /* MSGRTalkConnectionThread.m */,
-				30B18917180410980088D6F5 /* MSGRTalkWithUserViewController.h */,
-				30B18918180410980088D6F5 /* MSGRTalkWithUserViewController.m */,
-				30B18919180410980088D6F5 /* MSGRTickConnection.h */,
-				30B1891A180410980088D6F5 /* MSGRTickConnection.m */,
-				30B1891B180410980088D6F5 /* MSGRUserObject.h */,
-				30B1891C180410980088D6F5 /* MSGRUserObject.m */,
-				30B1891D180410980088D6F5 /* MSGRUtilities.h */,
-				30B1891E180410980088D6F5 /* MSGRUtilities.m */,
 			);
 			name = MSGR;
 			path = ../../MSGR;

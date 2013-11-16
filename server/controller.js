@@ -258,8 +258,14 @@ exports.syncMessages = function(user, conns){
 		d.then(function(fromUser){
 		    conns.forEach(function(conn) {
 			var j = msg.toJSONWithUser(fromUser);
-			//var host = conn.request.headers.host;
-			var host = helper.config.staticHost,
+			var host;
+			if(helper.config.staticHost) {
+			    host = helper.config.staticHost;
+			} else if(conn.request.headers.host){
+			    host = conn.request.headers.host;
+			} else {
+			    console.error('connection host not found');
+			}
 			j = exports.addFileURL(host, j);
 			conn.emit('message comes', j);
 			    });
