@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0668C3A01872C22A00D8B030 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 064312FC1872BEAF00D0A689 /* Default-568h@2x.png */; };
 		06BA94771804DDEA004B7A33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06BA94761804DDEA004B7A33 /* AVFoundation.framework */; };
 		30A7B3A618093E5B0096A40C /* MSGRDEMOLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A7B3A518093E5B0096A40C /* MSGRDEMOLoginViewController.m */; };
 		30A7B3A918093EA00096A40C /* MSGRDEMOLoginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30A7B3A818093EA00096A40C /* MSGRDEMOLoginCell.m */; };
@@ -66,6 +67,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		064312F41872BDF900D0A689 /* 57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57x57.png; sourceTree = "<group>"; };
+		064312F51872BE1100D0A689 /* 114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 114x114.png; sourceTree = "<group>"; };
+		064312F61872BE2500D0A689 /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120x120.png; sourceTree = "<group>"; };
+		064312F71872BE3600D0A689 /* 29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29x29.png; sourceTree = "<group>"; };
+		064312F81872BE4800D0A689 /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58x58.png; sourceTree = "<group>"; };
+		064312F91872BE5700D0A689 /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80x80.png; sourceTree = "<group>"; };
+		064312FA1872BE7F00D0A689 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		064312FB1872BE9A00D0A689 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		064312FC1872BEAF00D0A689 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		06BA94761804DDEA004B7A33 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		30A7B3A418093E5B0096A40C /* MSGRDEMOLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGRDEMOLoginViewController.h; sourceTree = "<group>"; };
 		30A7B3A518093E5B0096A40C /* MSGRDEMOLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGRDEMOLoginViewController.m; sourceTree = "<group>"; };
@@ -82,7 +92,7 @@
 		30B188C5180404EF0088D6F5 /* MSGRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGRAppDelegate.h; sourceTree = "<group>"; };
 		30B188C6180404EF0088D6F5 /* MSGRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSGRAppDelegate.m; sourceTree = "<group>"; };
 		30B188C8180404EF0088D6F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images.xcassets; sourceTree = "<group>"; };
-		30B188CE180404EF0088D6F5 /* MsgrDemoTests */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = MsgrDemoTests; sourceTree = BUILT_PRODUCTS_DIR; };
+		30B188CE180404EF0088D6F5 /* MsgrDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MsgrDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B188E7180410980088D6F5 /* MSGRDefaultContact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MSGRDefaultContact.png; sourceTree = "<group>"; };
 		30B188E8180410980088D6F5 /* MSGRLeftBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MSGRLeftBubble.png; sourceTree = "<group>"; };
 		30B188E9180410980088D6F5 /* MSGRLeftBubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MSGRLeftBubble@2x.png"; sourceTree = "<group>"; };
@@ -261,6 +271,15 @@
 		30B188AA180404EF0088D6F5 = {
 			isa = PBXGroup;
 			children = (
+				064312FC1872BEAF00D0A689 /* Default-568h@2x.png */,
+				064312FB1872BE9A00D0A689 /* Default~iphone.png */,
+				064312FA1872BE7F00D0A689 /* Default.png */,
+				064312F91872BE5700D0A689 /* 80x80.png */,
+				064312F81872BE4800D0A689 /* 58x58.png */,
+				064312F71872BE3600D0A689 /* 29x29.png */,
+				064312F61872BE2500D0A689 /* 120x120.png */,
+				064312F51872BE1100D0A689 /* 114x114.png */,
+				064312F41872BDF900D0A689 /* 57x57.png */,
 				30B188BC180404EF0088D6F5 /* MsgrDemo */,
 				30B188B5180404EF0088D6F5 /* Frameworks */,
 				30B188B4180404EF0088D6F5 /* Products */,
@@ -271,7 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				30B188B3180404EF0088D6F5 /* MsgrDemo.app */,
-				30B188CE180404EF0088D6F5 /* MsgrDemoTests */,
+				30B188CE180404EF0088D6F5 /* MsgrDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -382,7 +401,7 @@
 			);
 			name = MsgrDemoTests;
 			productName = MsgrDemoTests;
-			productReference = 30B188CE180404EF0088D6F5 /* MsgrDemoTests */;
+			productReference = 30B188CE180404EF0088D6F5 /* MsgrDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -428,6 +447,7 @@
 				30B18925180410980088D6F5 /* MSGRRightBubble@2x.png in Resources */,
 				30B18924180410980088D6F5 /* MSGRRightBubble.png in Resources */,
 				30B18926180410980088D6F5 /* MSGRText.png in Resources */,
+				0668C3A01872C22A00D8B030 /* Default-568h@2x.png in Resources */,
 				30B1891F180410980088D6F5 /* MSGRDefaultContact.png in Resources */,
 				30B18920180410980088D6F5 /* MSGRLeftBubble.png in Resources */,
 				30B188C1180404EF0088D6F5 /* InfoPlist.strings in Resources */,
@@ -587,14 +607,16 @@
 		30B188E0180404EF0088D6F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MsgrDemo/MsgrDemo-Prefix.pch";
 				INFOPLIST_FILE = "MsgrDemo/MsgrDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -602,14 +624,16 @@
 		30B188E1180404EF0088D6F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MsgrDemo/MsgrDemo-Prefix.pch";
 				INFOPLIST_FILE = "MsgrDemo/MsgrDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
