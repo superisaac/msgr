@@ -57,7 +57,7 @@
     } else if ([msg isImage]) {
         return CGSizeMake(100, 100);
     } else if ([msg isAudio]) {
-        return CGSizeMake(80, 26);
+        return CGSizeMake(60, 26);
     } else {
         return [[self unknownAlert] sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:CGSizeMake(180, 10000) lineBreakMode:NSLineBreakByCharWrapping];
     }
@@ -90,9 +90,6 @@
             NSLog(@"stop");
             [_player stop];
         } else {
-            //NSError * error;
-            //NSURL * assetURL = [[MSGRMessenger messenger].objectStore assetURLWithPath:_msg.assetPath];
-            //_player = [[AVAudioPlayer alloc] initWithContentsOfURL:assetURL error:&error];
             MSGRMessenger * msgr = [MSGRMessenger messenger];
             [msgr message:_msg gotData:^(NSData *data) {
                 if (data) {
@@ -111,6 +108,11 @@
                 }
             }];
         }
+    } else if ([_msg isImage]) {
+        MSGRMessenger * msgr = [MSGRMessenger messenger];
+        [msgr message:_msg gotImage:^(UIImage *image) {
+            
+        }];
     }
 }
 

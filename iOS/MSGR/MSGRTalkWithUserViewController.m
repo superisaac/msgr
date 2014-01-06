@@ -38,7 +38,7 @@
     UITextField * textInput;
     BOOL _keyboardVisible;
     BOOL _inputIsAudio;
-    MSGRPopOverMenu * composerMethodsMenu;
+    MSGRPopOverMenu * _composerMethodsMenu;
     MSGRAudioComposer * _audioComposer;
     AVAudioPlayer * _player;
 }
@@ -62,6 +62,14 @@
         textField.delegate = nil;
         [textField removeTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     }
+}
+
+- (NSInteger)countOfExistingMsgs {
+    NSInteger count = 0;
+    for(MSGRMsgSection * sec in messageSectionList) {
+        count += sec.messageList.count;
+    }
+    return count;
 }
 
 - (void)sectionListOfMessages:(NSArray *)messageList {
@@ -105,10 +113,10 @@
     [super viewDidLoad];
     self.title = self.user.screenName;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    NSArray * arr = [[MSGRMessenger messenger].objectStore messageListOfUser:self.user];
-    [self sectionListOfMessages:[arr reversedArray]];
-    
     [self resetToolbarItems];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(moreData) forControlEvents:UIControlEventValueChanged];
+    
     [self refreshData];
 }
 
@@ -168,10 +176,27 @@
 }
 
 - (void)refreshData {
-    NSArray * arr = [[MSGRMessenger messenger].objectStore messageListOfUser:self.user];
-    [self sectionListOfMessages:[arr reversedArray]];
+    NSInteger msgCount = [self countOfExistingMsgs];
+    msgCount = MAX(10, msgCount);
+    NSArray * arr = [[MSGRMessenger messenger].objectStore messageListOfUser:self.user range:NSMakeRange(0, msgCount)];
+    if (arr && arr.count > 0) {
+        [self sectionListOfMessages:[arr reversedArray]];
+    }
     [self.tableView reloadData];
     [self scrollToBottomAnimated:NO];
+}
+
+- (void)moreData {
+    NSInteger msgCount = [self countOfExistingMsgs];
+    NSArray * arr = [[MSGRMessenger messenger].objectStore messageListOfUser:self.user range:NSMakeRange(0, msgCount + 10)];
+    if (arr && arr.count > msgCount) {
+        [self sectionListOfMessages:[arr reversedArray]];
+        [self.refreshControl endRefreshing];
+        [self.tableView reloadData];
+    } else {
+        [self.refreshControl endRefreshing];
+        [self.refreshControl removeFromSuperview];
+    }
 }
 
 - (void)setEditingText:(NSString *)editingText from:(UIView *)fromView {
@@ -460,17 +485,17 @@
 
 - (void)showMethods:(UIBarButtonItem *)barItem {
     [self resignInput];
-    composerMethodsMenu = [[MSGRPopOverMenu alloc] initWithItems:@[NSLocalizedString(@"Camera", nil),
+    _composerMethodsMenu = [[MSGRPopOverMenu alloc] initWithItems:@[NSLocalizedString(@"Camera", nil),
                                                                    NSLocalizedString(@"Album", nil),
                                                                    NSLocalizedString(@"Doodle", nil)]];
-    composerMethodsMenu.delegate = self;
+    _composerMethodsMenu.delegate = self;
     CGPoint origin = [self.navigationController.toolbar originInView:self.navigationController.view];
     origin = CGPointMake(origin.x + self.navigationController.toolbar.frame.size.width, origin.y);
-    [composerMethodsMenu showInViewController:self.navigationController anchorView:self.navigationController.toolbar position:CGPointMake(1.0, 0)];
+    [_composerMethodsMenu showInViewController:self.navigationController anchorView:self.navigationController.toolbar position:CGPointMake(1.0, 0)];
 }
 
 - (void)popOverMenu:(MSGRPopOverMenu *)popOverMenu itemSelectedAtIndex:(NSInteger)itemIndex {
-    composerMethodsMenu = nil;
+    _composerMethodsMenu = nil;
     BOOL imageType = NO;
     MSGRImageComposeSourceType sourceType = MSGRImageComposeSourceDoodle;
     if (itemIndex == 0) {

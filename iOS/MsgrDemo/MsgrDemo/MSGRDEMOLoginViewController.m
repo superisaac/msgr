@@ -42,6 +42,29 @@
     
     [self loadInput];
     [self checkSubmitButton];
+    
+    UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
+    [self.view addGestureRecognizer:tapRecognizer];
+}
+
+- (UIView *)firstResponseView:(UIView *)v {
+    if([v isFirstResponder]) {
+        return v;
+    }
+    for(UIView * view in [v subviews]) {
+        UIView * vv = [self firstResponseView:view];
+        if (vv) {
+            return vv;
+        }
+    }
+    return nil;
+}
+
+- (void)backgroundTapped:(UIGestureRecognizer *)recognizer {
+    UIView * fv = [self firstResponseView:self.view];
+    if (fv) {
+        [fv resignFirstResponder];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -123,7 +146,7 @@
         case 2:
             cell.textLabel.text = NSLocalizedString(@"Password", nil);
             cell.textField.placeholder = NSLocalizedString(@"Password", nil);
-            //cell.textField.secureTextEntry = YES;
+            cell.textField.secureTextEntry = YES;
             cell.textField.text = _password;
             break;
         default:

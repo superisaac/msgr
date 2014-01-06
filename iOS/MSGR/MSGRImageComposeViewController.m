@@ -117,7 +117,12 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     NSLog(@"picker cancel");
-//    [self dismiss];
+    __weak typeof(self) wself = self;
+    [picker dismissViewControllerAnimated:YES completion:^{
+        if(wself) {
+            [wself dismiss];
+        }
+    }];
 }
 
 

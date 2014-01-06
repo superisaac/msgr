@@ -47,8 +47,6 @@
 
 - (void)initView {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-
-    
     
     self.textField = [[UITextField alloc] initWithFrame:CGRectMake(self.bounds.size.width - 210, 12, 180, 32)];
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 32)];
